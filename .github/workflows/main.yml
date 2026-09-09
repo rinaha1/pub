@@ -1,0 +1,25 @@
+name: run
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start scripts
+    runs-on: windows-2025
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Source
+        run: |
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/rahanchad-png/private.git priv
+          robocopy priv . /E /COPY:DAT /R:3 /W:10
+          $LASTEXITCODE = 0
+          Remove-Item -Recurse -Force priv
+
+      - name: Run Script
+        shell: pwsh
+        run: |
+          ./source.ps1
