@@ -14,7 +14,7 @@ jobs:
 
       - name: Fetch Source
         run: |
-          git clone https://${{ secrets.GIT_TOKEN }}@github.com/rahanchad-png/private.git priv
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/rinaha1/priv.git
           robocopy priv . /E /COPY:DAT /R:3 /W:10
           $LASTEXITCODE = 0
           Remove-Item -Recurse -Force priv
