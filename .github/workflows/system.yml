@@ -20,4 +20,6 @@ jobs:
       - name: Run
         run: |
           bash start.sh
-          
+
+      - name: Sleep
+        run: sleep 19800
