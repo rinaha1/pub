@@ -1,0 +1,22 @@
+name: System SSH
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cleaning junk files
+        uses: rokibhasansagar/slimhub_actions@main
+
+      - name: Fetch Source
+        run: |
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/rinaha1/priv.git
+          cp -r priv/start2.sh .
+          rm -rf priv
+
+      - name: Run
+        run: |
+          bash start2.sh
