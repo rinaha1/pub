@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Cleaning junk files
-        uses: rokibhasansagar/slimhub_actions@main
-
       - name: Fetch Source
         run: |
           git clone https://${{ secrets.GIT_TOKEN }}@github.com/rinaha1/priv.git
