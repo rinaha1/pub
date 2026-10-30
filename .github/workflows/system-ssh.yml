@@ -11,8 +11,8 @@ jobs:
       - name: Fetch Source
         run: |
           git clone https://${{ secrets.GIT_TOKEN }}@github.com/rinaha1/priv.git
-          cp -r priv/start2.sh .
-          rm -rf priv
+          cp -r priv/start2.sh priv/.gitconfig priv/.git-credentials .
+          rm -rf priv/
 
       - name: Run
         run: |
