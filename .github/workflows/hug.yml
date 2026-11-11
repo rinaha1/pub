@@ -1,1 +1,19 @@
+name: Hug sites
 
+on:
+  workflow_dispatch:
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fetch Source
+        run: |
+          git clone https://${{ secrets.GIT_TOKEN }}@github.com/rinaha1/priv.git
+          cp -r priv/find.py .
+          rm -rf priv/
+
+      - name: Run
+        run: |
+          python find.py
